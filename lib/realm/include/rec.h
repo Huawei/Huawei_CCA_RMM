@@ -59,7 +59,7 @@ struct sysreg_state {
 	/* Timer Registers */
 	unsigned long cnthctl_el2;
 	unsigned long cntvoff_el2;
-	unsigned long cntpoff_el2;
+	ECV(unsigned long cntpoff_el2;)
 	unsigned long cntp_ctl_el0;
 	unsigned long cntp_cval_el0;
 	unsigned long cntv_ctl_el0;

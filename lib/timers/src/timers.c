@@ -91,5 +91,9 @@ void report_timer_state_to_ns(struct rmi_rec_exit *rec_exit)
 	rec_exit->cntv_cval = read_cntv_cval_el02() - read_cntvoff_el2();
 
 	rec_exit->cntp_ctl = read_cntp_ctl_el02();
+#if HAS_ECV
 	rec_exit->cntp_cval = read_cntp_cval_el02() - read_cntpoff_el2();
+#else
+	rec_exit->cntp_cval = read_cntp_cval_el02();
+#endif
 }

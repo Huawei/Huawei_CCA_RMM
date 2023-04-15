@@ -154,6 +154,14 @@
 #define SPE(_x...)
 #endif
 
+#define HAS_ECV 0
+
+#if HAS_ECV
+#define ECV(_x...) _x
+#else
+#define ECV(_x...)
+#endif
+
 #if !(defined(__ASSEMBLER__) || defined(__LINKER__))
 
 /*

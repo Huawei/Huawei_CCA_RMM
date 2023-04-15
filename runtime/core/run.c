@@ -100,7 +100,7 @@ static void save_sysreg_state(struct sysreg_state *sysregs)
 	MPAM(sysregs->mpam0_el1 = read_mpam0_el1();)
 
 	/* Timer registers */
-	sysregs->cntpoff_el2 = read_cntpoff_el2();
+	ECV(sysregs->cntpoff_el2 = read_cntpoff_el2();)
 	sysregs->cntvoff_el2 = read_cntvoff_el2();
 	sysregs->cntp_ctl_el0 = read_cntp_ctl_el02();
 	sysregs->cntp_cval_el0 = read_cntp_cval_el02();
@@ -162,7 +162,7 @@ static void restore_sysreg_state(struct sysreg_state *sysregs)
 	write_vmpidr_el2(sysregs->vmpidr_el2);
 
 	/* Timer registers */
-	write_cntpoff_el2(sysregs->cntpoff_el2);
+	ECV(write_cntpoff_el2(sysregs->cntpoff_el2);)
 	write_cntvoff_el2(sysregs->cntvoff_el2);
 
 	/*
